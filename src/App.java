@@ -19,7 +19,7 @@ public class App {
         System.out.println(row);
         
 
-        row.enqueue(new Knot("último"));
+        row.enqueue("Último");
         System.out.println(row);
 
         System.out.println(row.first());

@@ -12,12 +12,13 @@ public class Row {
 
 
     
-    public void enqueue(Knot newKnot){
+    public void enqueue(Object obj){
+        Knot newKnot = new Knot(obj);
         newKnot.setKnotRef(refKnotEntryRow);
         refKnotEntryRow = newKnot;
     }
 
-    public Knot first(){
+    public Object first(){
         if(!this.isEmpty()){
             Knot firstKnot = refKnotEntryRow;
 
@@ -30,13 +31,13 @@ public class Row {
                 }
             }
 
-            return firstKnot;
+            return firstKnot.getObject();
         }
         
         return null;
     }
 
-    public Knot dequeue(){
+    public Object dequeue(){
         if(!this.isEmpty()){
             Knot firstKnot = refKnotEntryRow;
             Knot auxiliaryKnot = refKnotEntryRow;
@@ -52,7 +53,7 @@ public class Row {
                 }
             }
 
-            return firstKnot;
+            return firstKnot.getObject();
         }
         
         return null;
