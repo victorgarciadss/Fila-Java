@@ -2,9 +2,9 @@ package structure.row;
 
 import structure.knot.Knot;
 
-public class Row {
+public class Row<T> {
     
-    private Knot refKnotEntryRow;
+    private Knot<T> refKnotEntryRow;
 
     public Row(){
         this.refKnotEntryRow = null;
@@ -12,15 +12,15 @@ public class Row {
 
 
     
-    public void enqueue(Object obj){
-        Knot newKnot = new Knot(obj);
+    public void enqueue(T object){
+        Knot<T> newKnot = new Knot<>(object);
         newKnot.setKnotRef(refKnotEntryRow);
         refKnotEntryRow = newKnot;
     }
 
-    public Object first(){
+    public T first(){
         if(!this.isEmpty()){
-            Knot firstKnot = refKnotEntryRow;
+            Knot<T> firstKnot = refKnotEntryRow;
 
             while(true){
                 if(firstKnot.getKnotRef() != null){
@@ -37,10 +37,10 @@ public class Row {
         return null;
     }
 
-    public Object dequeue(){
+    public T dequeue(){
         if(!this.isEmpty()){
-            Knot firstKnot = refKnotEntryRow;
-            Knot auxiliaryKnot = refKnotEntryRow;
+            Knot<T> firstKnot = refKnotEntryRow;
+            Knot<T> auxiliaryKnot = refKnotEntryRow;
 
             while(true){
                 if(firstKnot.getKnotRef() != null){
@@ -53,7 +53,7 @@ public class Row {
                 }
             }
 
-            return firstKnot.getObject();
+            return (T)firstKnot.getObject();
         }
         
         return null;
@@ -72,7 +72,7 @@ public class Row {
     public String toString(){
         String rowString = "";
 
-        Knot auxiliaryKnot = refKnotEntryRow;
+        Knot<T> auxiliaryKnot = refKnotEntryRow;
 
         if(refKnotEntryRow != null){
             while(true){

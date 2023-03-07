@@ -1,16 +1,15 @@
-import structure.knot.Knot;
 import structure.row.Row;
 
 public class App {
     public static void main(String[] args) throws Exception {
         
-        Row row = new Row();
+        Row<String> row = new Row<>();
 
-        row.enqueue(new Knot("Primeiro"));
-        row.enqueue(new Knot("segundo"));
-        row.enqueue(new Knot("terceiro"));
-        row.enqueue(new Knot("quarto"));
-        row.enqueue(new Knot("quinto"));
+        row.enqueue("Primeiro");
+        row.enqueue("segundo");
+        row.enqueue("terceiro");
+        row.enqueue("quarto");
+        row.enqueue("quinto");
 
         System.out.println(row);
 

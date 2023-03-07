@@ -1,29 +1,29 @@
 package structure.knot;
 
-public class Knot {
+public class Knot<T> {
     
-    private Object object;
-    private Knot knotRef;
+    private T object;
+    private Knot<T> knotRef;
 
-    public Knot(Object object){
+    public Knot(T object){
         this.knotRef = null;
         this.object = object;
     }
 
 
-    public Object getObject(){
+    public T getObject(){
         return object;
     }
 
-    public void setObject(Object object){
+    public void setObject(T object){
         this.object = object;
     }
 
-    public Knot getKnotRef(){
+    public Knot<T> getKnotRef(){
         return knotRef;
     }
 
-    public void setKnotRef(Knot knotRef){
+    public void setKnotRef(Knot<T> knotRef){
         this.knotRef = knotRef;
     }
 
